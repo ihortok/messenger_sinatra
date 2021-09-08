@@ -1,0 +1,7 @@
+<header>
+  <% if logged_in? %>
+    <form action="/sessions/destroy" method="post">
+      <button type="submit">Sing out</button>
+    </form>
+  <% end %>
+</header>
