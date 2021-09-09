@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2021_09_09_082300) do
 
   create_table "chats", force: :cascade do |t|
     t.string "name"
+    t.integer "access_type"
   end
 
   create_table "messages", force: :cascade do |t|
