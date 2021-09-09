@@ -3,5 +3,9 @@
     <form action="/sessions/destroy" method="post">
       <button type="submit">Sing out</button>
     </form>
+  <% else %>
+    <nav>
+      <a href="/sessions/new">Sign in</a>
+    </nav>
   <% end %>
 </header>
