@@ -1,3 +1,5 @@
+<%= erb :'chats/_aside.html' %>
+
 <h1>Private chat with <%= @receiver.nickname.titleize %></h1>
 
 <ul>
@@ -9,3 +11,10 @@
     </li>
   <% end %>
 </ul>
+
+<form action="/messages/create" method="post">
+  <input type="hidden" name="receiver_id" value="<%= @receiver.id %>">
+  <textarea name="content"></textarea>
+  <br>
+  <button type="submit">Send</button>
+</form>

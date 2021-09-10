@@ -9,12 +9,14 @@
 
   <%= erb :'header.html' %>
 
-  <% if logged_in? %>
-    <%= erb :'aside.html' %>
-  <% end %>
-
   <% unless locals.empty? %>
     <%= message %>
+  <% end %>
+
+  <% flash.keys.each do |type| %>
+    <div class="flash <%= type %>">
+      <%= flash[type] %>
+    </div>
   <% end %>
 
   <%= yield %>
