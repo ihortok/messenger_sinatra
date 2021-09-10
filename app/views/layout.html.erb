@@ -17,6 +17,12 @@
     <%= message %>
   <% end %>
 
+  <% flash.keys.each do |type| %>
+    <div class="flash <%= type %>">
+      <%= flash[type] %>
+    </div>
+  <% end %>
+
   <%= yield %>
 
 </body>

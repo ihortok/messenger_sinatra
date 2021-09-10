@@ -5,11 +5,9 @@ class MessagesController < ApplicationController
   post '/messages/create' do
     message = Message.new(message_params)
 
-    if message.save
-      redirect env['HTTP_REFERER']
-    else
-      erb :'chats/show.html', layout: :'layout.html', locals: { message: 'Something went wrong. Please try again.' }
-    end
+    flash[:alert] = message.errors.full_messages.join('; ') unless message.save
+
+    redirect env['HTTP_REFERER']
   end
 
   private
