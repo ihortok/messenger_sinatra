@@ -12,3 +12,7 @@ gem 'puma'
 gem 'rake'
 gem 'sinatra'
 gem 'sinatra-activerecord'
+
+group :development, :test do
+  gem 'faker'
+end

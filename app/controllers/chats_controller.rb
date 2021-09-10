@@ -3,7 +3,7 @@
 # ChatsController
 class ChatsController < ApplicationController
   before do
-    @users = User.all.reject { |user| user == current_user }
+    @users = User.where.not(id: current_user)
   end
 
   get '/chats' do
@@ -13,9 +13,9 @@ class ChatsController < ApplicationController
   end
 
   get '/chats/:name' do
-    @chat = Chat.find_by(name: params[:name]) || ChatCteator.new(params[:name]).call
+    # @chat = Chat.find_by(name: params[:name]) || ChatCteator.new(params[:name]).call
 
-    send_file 'public/404.html' unless @chat
+    # send_file 'public/404.html' unless @chat
 
     erb :'chats/show.html', layout: :'layout.html'
   end
