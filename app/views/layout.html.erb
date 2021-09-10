@@ -9,10 +9,6 @@
 
   <%= erb :'header.html' %>
 
-  <% if logged_in? %>
-    <%= erb :'aside.html' %>
-  <% end %>
-
   <% unless locals.empty? %>
     <%= message %>
   <% end %>
