@@ -12,10 +12,13 @@ class ChatsController < ApplicationController
     erb :'chats/index.html', layout: :'layout.html'
   end
 
-  get '/chats/:name' do
-    # @chat = Chat.find_by(name: params[:name]) || ChatCteator.new(params[:name]).call
+  get '/chats/:user_nickname' do
+    @receiver = User.find_by(nickname: params[:user_nickname])
 
-    # send_file 'public/404.html' unless @chat
+    send_file 'public/404.html' unless @receiver
+
+    @messages = Message.where(sender: [current_user, @receiver], receiver: [current_user, @receiver])
+                       .order(created_at: :asc)
 
     erb :'chats/show.html', layout: :'layout.html'
   end
