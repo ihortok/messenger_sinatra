@@ -1,0 +1,11 @@
+<h1>Private chat with <%= @receiver.nickname.titleize %></h1>
+
+<ul>
+  <% @messages.each do |message| %>
+    <li>
+      <%= message.content %>
+      <br>
+      <%= message.created_at %>
+    </li>
+  <% end %>
+</ul>

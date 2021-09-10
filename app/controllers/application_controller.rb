@@ -10,7 +10,11 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-    erb :'index.html', layout: :'layout.html'
+    if logged_in?
+      redirect '/chats'
+    else
+      redirect '/sessions/new'
+    end
   end
 
   helpers do
