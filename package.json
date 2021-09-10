@@ -1,11 +1,7 @@
 {
-  "name": "messenger_sinatra",
+  "name": "messenger",
   "version": "1.0.0",
   "description": "A tool for chatting with friends",
-  "main": "index.js",
-  "directories": {
-    "lib": "lib"
-  },
   "scripts": {
     "dev": "webpack --watch --mode=development",
     "prod": "webpack --mode=production"
@@ -14,17 +10,11 @@
     "type": "git",
     "url": "git+https://github.com/ihortok/messenger_sinatra.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ihortok/messenger_sinatra/issues"
-  },
+  "author": "ihortok",
   "homepage": "https://github.com/ihortok/messenger_sinatra#readme",
   "devDependencies": {
-    "css-loader": "^6.2.0",
-    "mini-css-extract-plugin": "^2.2.2",
-    "node-sass": "^6.0.1",
+    "babel-loader": "^8.2.2",
+    "file-loader": "^6.2.0",
     "sass-loader": "^12.1.0",
     "webpack": "^5.52.1",
     "webpack-cli": "^4.8.0"
