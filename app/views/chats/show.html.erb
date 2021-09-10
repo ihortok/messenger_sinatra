@@ -9,3 +9,10 @@
     </li>
   <% end %>
 </ul>
+
+<form action="/messages/create" method="post">
+  <input type="hidden" name="receiver_id" value="<%= @receiver.id %>">
+  <textarea name="content"></textarea>
+  <br>
+  <button type="submit">Send</button>
+</form>
