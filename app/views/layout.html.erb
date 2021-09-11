@@ -13,21 +13,29 @@
   <meta name="theme-color" content="#ffffff">
   <link rel="stylesheet" href="/css/main.min.css">
 </head>
-<body>
+<body style="background: url('/images/background.jpg') repeat">
 
-  <%= erb :'header.html' %>
+  <div class="container">
+    <%= erb :'_header.html' %>
 
-  <% unless locals.empty? %>
-    <%= message %>
-  <% end %>
+    <div class="container-inner">
+      <%= erb :'_aside.html' %>
 
-  <% flash.keys.each do |type| %>
-    <div class="flash <%= type %>">
-      <%= flash[type] %>
+      <div class="content">
+        <% unless locals.empty? %>
+          <%= message %>
+        <% end %>
+
+        <% flash.keys.each do |type| %>
+          <div class="flash <%= type %>">
+            <%= flash[type] %>
+          </div>
+        <% end %>
+
+        <%= yield %>
+      </div>
     </div>
-  <% end %>
-
-  <%= yield %>
+  </div>
 
   <script src="/js/main.min.js"></script>
 

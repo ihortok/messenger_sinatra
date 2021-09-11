@@ -1,0 +1,87 @@
+/* ------------ variables ------------ */
+/* ------------ mixins ------------ */
+/* ------------ general ------------ */
+body {
+  padding: 0;
+  margin: 0;
+  font-size: 20px; }
+
+img {
+  max-width: 100%;
+  max-height: 100%; }
+
+.container {
+  height: 100vh;
+  padding: 0 15px;
+  max-width: 1140px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column; }
+
+.container-inner {
+  margin: 15px 0;
+  flex: 1;
+  display: flex;
+  overflow-y: hidden; }
+
+.content {
+  width: 75%;
+  background-color: #f5f5f5;
+  border: 1px solid #cccccc;
+  border-radius: 10px;
+  overflow-y: auto; }
+
+.aside {
+  width: 25%;
+  margin-right: 15px;
+  background-color: #f5f5f5;
+  border: 1px solid #cccccc;
+  border-radius: 10px;
+  overflow-y: auto; }
+
+/* ------------ components ------------ */
+.btn {
+  padding: 8px 15px;
+  outline: none;
+  font-size: 18px;
+  line-height: 1;
+  transition: .15s;
+  color: #f5f5f5;
+  background: linear-gradient(#1d98f7, #2b81c3);
+  border: 1px solid #2b81c3;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none; }
+  .btn:hover {
+    background: linear-gradient(to top, #1d98f7, #2b81c3); }
+  .btn:focus {
+    background: linear-gradient(#1d98f7, #2b81c3); }
+  .btn.btn-red {
+    background: linear-gradient(#dd1e1e, #b12929);
+    border: 1px solid #b12929; }
+    .btn.btn-red:hover {
+      background: linear-gradient(to top, #dd1e1e, #b12929); }
+    .btn.btn-red:focus {
+      background: linear-gradient(#dd1e1e, #b12929); }
+  .btn.btn-green {
+    background: linear-gradient(#b3e920, #98c51c);
+    border: 1px solid #98c51c; }
+    .btn.btn-green:hover {
+      background: linear-gradient(to top, #b3e920, #98c51c); }
+    .btn.btn-green:focus {
+      background: linear-gradient(#b3e920, #98c51c); }
+
+/* ------------ header ------------ */
+.header {
+  margin-top: 15px;
+  padding: 8px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f5f5f5;
+  border: 1px solid #cccccc;
+  border-radius: 10px; }
+
+.logo {
+  width: 60px;
+  height: 60px; }
