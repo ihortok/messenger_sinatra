@@ -1,20 +1,33 @@
-<div class="chats-content">
-  <h1>Private chat with <%= @receiver.nickname.titleize %></h1>
-
-  <ul>
-    <% @messages.each do |message| %>
-      <li>
-        <%= message.content %>
-        <br>
-        <%= message.created_at %>
-      </li>
-    <% end %>
-  </ul>
-
-  <form action="/messages/create" method="post">
-    <input type="hidden" name="receiver_id" value="<%= @receiver.id %>">
-    <textarea name="content"></textarea>
-    <br>
-    <button type="submit">Send</button>
-  </form>
+<% current_nick = current_user.nickname %>
+<div class="chat">
+  <header>
+    <a href="/chats" class="btn btn-icon">
+      <img src="/images/back.png">
+    </a>
+    <h3><%= @receiver.nickname %></h3>
+  </header>
+  <div id="messages" class="messages">
+    <ul>
+      <% @messages.each do |message| %>
+        <li class="message <%= 'current-user-message' if message.sender.nickname == current_nick %>">
+          <div class="message-inner">
+            <span class="message-date">
+              <%= message.created_at.strftime('%H:%M %Y-%m-%d') %>
+            </span>
+            <br>
+            <span class="message-content">
+              <%= message.content %>
+            </span>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <footer>
+    <form action="/messages/create" method="post">
+      <input type="hidden" name="receiver_id" value="<%= @receiver.id %>">
+      <textarea name="content" required></textarea>
+      <button type="submit" class="btn btn-icon"><img src="/images/send.png"></button>
+    </form>
+  </footer>
 </div>
