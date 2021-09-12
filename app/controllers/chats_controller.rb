@@ -18,6 +18,7 @@ class ChatsController < ApplicationController
     send_file 'public/404.html' unless @receiver
 
     @messages = Message.where(sender: [current_user, @receiver], receiver: [current_user, @receiver])
+                       .includes(:sender)
                        .order(created_at: :asc)
 
     erb :'chats/show.html', layout: :'layout.html'

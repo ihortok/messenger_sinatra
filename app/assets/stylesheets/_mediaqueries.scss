@@ -1,0 +1,15 @@
+/* ------------ 1200 ------------ */
+
+@media screen and (min-width: 1200px) {
+  .aside {
+    display: block;
+  }
+
+  .content {
+    width: 75%;
+  }
+
+  .users-list-mobile {
+    display: none;
+  }
+}
