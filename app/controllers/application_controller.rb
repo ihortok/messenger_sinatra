@@ -27,4 +27,10 @@ class ApplicationController < Sinatra::Base
       @user = User.find_by(id: session[:user_id])
     end
   end
+
+  private
+
+  def redirect_unless_logged_in
+    redirect '/sessions/new' unless logged_in?
+  end
 end

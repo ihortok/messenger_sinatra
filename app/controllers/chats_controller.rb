@@ -7,12 +7,14 @@ class ChatsController < ApplicationController
   end
 
   get '/chats' do
-    redirect '/sessions/new' unless logged_in?
+    redirect_unless_logged_in
 
     erb :'chats/index.html', layout: :'layout.html'
   end
 
   get '/chats/:user_nickname' do
+    redirect_unless_logged_in
+
     @receiver = User.find_by(nickname: params[:user_nickname])
 
     send_file 'public/404.html' unless @receiver

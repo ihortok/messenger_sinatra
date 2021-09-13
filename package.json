@@ -13,8 +13,10 @@
   "author": "ihortok",
   "homepage": "https://github.com/ihortok/messenger_sinatra#readme",
   "devDependencies": {
+    "@babel/core": "^7.15.5",
     "babel-loader": "^8.2.2",
     "file-loader": "^6.2.0",
+    "sass": "^1.39.2",
     "sass-loader": "^12.1.0",
     "webpack": "^5.52.1",
     "webpack-cli": "^4.8.0"

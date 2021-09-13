@@ -1,4 +1,4 @@
-/* ------------ components ------------ */
+/* ------------ btn ------------ */
 
 .btn {
   padding: 8px 15px;
@@ -53,6 +53,46 @@
     &:focus {
       background: linear-gradient($green, $green-darker);
     }
+  }
+}
+
+/* ------------ form ------------ */
+
+.form {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  bottom: 15px;
+  left: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  form {
+    width: 100%;
+  }
+
+  label {
+    font-size: 18px;
+  }
+  
+  input {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px 5px;
+    border: 1px solid $grey;
+    border-radius: 5px;
+  }
+
+  .form-field {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .form-actions {
+    padding-top: 15px;
+    text-align: center;
   }
 }
 

@@ -3,6 +3,8 @@
 # MessagesController
 class MessagesController < ApplicationController
   post '/messages/create' do
+    redirect_unless_logged_in
+
     message = Message.new(message_params)
 
     flash[:alert] = message.errors.full_messages.join('; ') unless message.save
