@@ -2,12 +2,10 @@
 
 # ChatsController
 class ChatsController < ApplicationController
-  before do
-    @users = User.where.not(id: current_user)
-  end
-
   get '/chats' do
     redirect_unless_logged_in
+
+    @users = User.where.not(id: current_user.id)
 
     erb :'chats/index.html', layout: :'layout.html'
   end
@@ -15,9 +13,11 @@ class ChatsController < ApplicationController
   get '/chats/:user_nickname' do
     redirect_unless_logged_in
 
-    @receiver = User.find_by(nickname: params[:user_nickname])
+    @users = User.where.not(id: current_user.id)
 
-    send_file 'public/404.html' unless @receiver
+    @receiver = @users.find_by(nickname: params[:user_nickname])
+
+    return erb :'404.html', layout: :'layout.html' unless @receiver
 
     @messages = Message.where(sender: [current_user, @receiver], receiver: [current_user, @receiver])
                        .includes(:sender)

@@ -7,4 +7,8 @@ class User < ActiveRecord::Base
   validates :nickname, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
   validates :password, length: { minimum: 6 }
+
+  def messages
+    Message.where(sender: self).or(Message.where(receiver: self))
+  end
 end
