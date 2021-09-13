@@ -2,7 +2,7 @@ require_relative 'application'
 
 ENV['SINATRA_ENV'] ||= 'development'
 
-configure :development do
+configure :development, :production do
   db = URI.parse(ENV['DATABASE_URL'])
 
   set :database, {
