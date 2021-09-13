@@ -2,7 +2,7 @@
   <a href="/chats" class="logo">
     <img src="/images/logo.png">
   </a>
-  <nav>
+  <nav class="nav">
     <% if logged_in? %>
       <form action="/sessions/destroy" method="post">
         <button type="submit" class="btn btn-red">Sing out</button>

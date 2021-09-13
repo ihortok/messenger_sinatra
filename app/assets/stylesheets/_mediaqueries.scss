@@ -9,7 +9,21 @@
     width: 75%;
   }
 
+  .form {  
+    form {
+      width: 50%;
+    }
+  }
+
   .users-list-mobile {
     display: none;
+  }
+
+  .chat {
+    header {
+      .back {
+        display: none;
+      }
+    }
   }
 }

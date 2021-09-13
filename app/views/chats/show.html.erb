@@ -1,10 +1,11 @@
 <% current_nick = current_user.nickname %>
 <div class="chat">
   <header>
-    <a href="/chats" class="btn btn-icon">
+    <a href="/chats" class="btn btn-icon back">
       <img src="/images/back.png">
     </a>
     <h3><%= @receiver.nickname %></h3>
+    <a href="" class="btn btn-green refresh">refresh</a>
   </header>
   <div id="messages" class="messages">
     <ul>

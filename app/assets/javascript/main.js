@@ -1,2 +1,5 @@
 let messages = document.getElementById("messages");
-messages.scrollTop = messages.scrollHeight;
+
+if (messages !== null) {
+  messages.scrollTop = messages.scrollHeight;
+}
