@@ -2,14 +2,14 @@
   <% @users&.each do |user| %>
     <li>
       <a href="/chats/<%= user.nickname %>">
-        <img src="/images/user.png">
-        <div class="user-info">
+        <div class="users-list-info">
+          <img src="/images/user.png">
           <span><%= user.nickname %></span>
-          <% unread_messages_count = unread_messages_count_form(user) %>
-          <% if unread_messages_count.positive? %></span>
-            <span><%= unread_messages_count %></span>
-          <% end %>
         </div>
+        <% unread_messages_count = unread_messages_count_form(user) %>
+        <% if unread_messages_count.positive? %>
+          <span class="badge"><%= unread_messages_count %></span>
+        <% end %>
       </a>
     </li>
   <% end %>

@@ -17,7 +17,7 @@ class ChatsController < ApplicationController
 
     return erb :'404.html', layout: :'layout.html' unless receiver
 
-    MessageReader.new(messages).call
+    MessageReader.new(messages.where(sender: receiver)).call
 
     erb :'chats/show.html', layout: :'layout.html'
   end
