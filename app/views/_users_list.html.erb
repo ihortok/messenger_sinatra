@@ -5,6 +5,10 @@
         <img src="/images/user.png">
         <div class="user-info">
           <span><%= user.nickname %></span>
+          <% unread_messages_count = unread_messages_count_form(user) %>
+          <% if unread_messages_count.positive? %></span>
+            <span><%= unread_messages_count %></span>
+          <% end %>
         </div>
       </a>
     </li>
