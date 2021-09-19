@@ -10,7 +10,6 @@ gem 'capistrano-passenger'
 gem 'capistrano-rbenv'
 gem 'dotenv'
 gem 'pg'
-gem 'pry'
 gem 'puma'
 gem 'rake'
 gem 'sinatra'
@@ -19,4 +18,5 @@ gem 'sinatra-flash'
 
 group :development, :test do
   gem 'faker'
+  gem 'pry'
 end

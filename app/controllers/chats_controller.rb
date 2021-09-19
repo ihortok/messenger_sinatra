@@ -33,8 +33,6 @@ class ChatsController < ApplicationController
   end
 
   def messages
-    @messages ||= Message.where(sender: [current_user, receiver], receiver: [current_user, receiver])
-                         .includes(:sender)
-                         .order(created_at: :asc)
+    @messages ||= MessagesQuery.new.personal_for(current_user, receiver)
   end
 end
