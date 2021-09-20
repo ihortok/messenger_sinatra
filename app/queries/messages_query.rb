@@ -7,4 +7,8 @@ class MessagesQuery
            .includes(:sender)
            .order(created_at: :asc)
   end
+
+  def personal_unread(from:, to:)
+    Message.where(sender: from, receiver: to, seen: [false, nil]).count
+  end
 end
