@@ -11,6 +11,12 @@ class RegistrationController < ApplicationController
   post '/registration/create' do
     redirect '/chats' if logged_in?
 
+    unless email_white_listed?
+      flash[:alert] = 'This email isn\'t allowed for registration.'
+
+      redirect '/registration/new'
+    end
+
     user = User.new(registration_params)
 
     if user.save
@@ -29,5 +35,9 @@ class RegistrationController < ApplicationController
 
   def registration_params
     params.select { |param, _| %w[nickname email password].include? param }
+  end
+
+  def email_white_listed?
+    RegistrationWhiteList.where(email: registration_params['email']).present?
   end
 end

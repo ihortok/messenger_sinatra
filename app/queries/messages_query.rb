@@ -9,6 +9,6 @@ class MessagesQuery
   end
 
   def private_unread(from:, to:)
-    Message.where(sender: from, receiver: to, seen: [false, nil]).count
+    Message.where(sender: from, receiver: to, seen: [false, nil])
   end
 end
