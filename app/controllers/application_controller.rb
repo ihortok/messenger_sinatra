@@ -27,8 +27,8 @@ class ApplicationController < Sinatra::Base
       @user = User.find_by(id: session[:user_id])
     end
 
-    def unread_messages_count_form(user)
-      Message.where(sender: user, receiver: current_user, seen: [false, nil]).count
+    def unread_private_messages_count_from(user)
+      MessagesQuery.new.private_unread(from: user, to: current_user).count
     end
   end
 
