@@ -10,6 +10,6 @@ class MessageReader
 
   def call
     messages.where(seen: false)
-            .update(seen: true)
+            .update_all(seen: true)
   end
 end
