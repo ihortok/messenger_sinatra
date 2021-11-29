@@ -28,7 +28,7 @@ class ApplicationController < Sinatra::Base
     end
 
     def unread_private_messages_count_from(user)
-      MessagesQuery.new.private_unread(from: user, to: current_user).count
+      MessagesQuery.new.private_unread(sender_id: user.id, receiver_id: current_user.id).count
     end
   end
 

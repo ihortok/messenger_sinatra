@@ -17,7 +17,7 @@ class ChatsController < ApplicationController
 
     return erb :'404.html', layout: :'layout.html' unless receiver
 
-    MessageReader.new(messages.where(sender: receiver)).call
+    MessageReader.new(messages.where(sender_id: receiver.id)).call
 
     erb :'chats/show.html', layout: :'layout.html'
   end
@@ -33,6 +33,6 @@ class ChatsController < ApplicationController
   end
 
   def messages
-    @messages ||= MessagesQuery.new.private_chat_between(current_user, receiver)
+    @messages ||= MessagesQuery.new.private_chat_between(current_user.id, receiver.id)
   end
 end

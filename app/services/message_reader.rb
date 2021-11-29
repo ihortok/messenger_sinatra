@@ -9,7 +9,7 @@ class MessageReader
   end
 
   def call
-    messages.where(seen: [false, nil])
+    messages.where(seen: false)
             .update(seen: true)
   end
 end
