@@ -1,13 +1,21 @@
 # frozen_string_literal: true
 
 # User model
-class User < ActiveRecord::Base
+class User
+  include Mongoid::Document
+  include ActiveModel::SecurePassword
+
   has_secure_password
 
-  has_many :sent_messages, class_name: 'Message', foreign_key: 'sender_id'
-  has_many :received_messages, class_name: 'Message', foreign_key: 'receiver_id'
+  field :nickname
+  field :email
+  field :password_digest
+
+  has_and_belongs_to_many :chats
 
   validates :nickname, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
   validates :password, length: { minimum: 6 }
+
+  scope :all_except, ->(user) { where.not(id: user.id) }
 end
