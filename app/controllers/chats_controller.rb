@@ -17,11 +17,9 @@ class ChatsController < ApplicationController
 
     return erb :'404.html', layout: :'layout.html' unless receiver
 
-    chat = Chat.find_or_create_by(user_ids: [receiver, current_user])
+    chat = Chat.find_or_create_by(user_ids: [receiver.id, current_user.id])
 
     redirect "/chats/#{chat.id}"
-
-    MessageReader.new(messages.where(sender_id: receiver.id)).call
 
     erb :'chats/show.html', layout: :'layout.html'
   end
@@ -32,6 +30,19 @@ class ChatsController < ApplicationController
     @chat = Chat.find(params[:id])
 
     erb :'chats/show.html', layout: :'layout.html'
+  end
+
+  post '/chats/:chat_id/message' do
+    redirect_unless_logged_in
+
+    Message.create(
+      chat: Chat.find(params[:chat_id]),
+      content: params[:content],
+      sent_by: current_user.nickname,
+      created_at: Time.current
+    )
+
+    redirect env['HTTP_REFERER']
   end
 
   private

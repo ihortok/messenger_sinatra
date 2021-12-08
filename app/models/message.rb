@@ -5,8 +5,7 @@ class Message
   include Mongoid::Document
 
   field :content, type: String
-  field :sender_id, type: Integer
-  field :receiver_id, type: Integer
+  field :sent_by, type: String
   field :seen, type: Boolean, default: false
   field :created_at, type: DateTime
 

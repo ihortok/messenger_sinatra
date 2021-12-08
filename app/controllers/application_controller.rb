@@ -24,7 +24,13 @@ class ApplicationController < Sinatra::Base
     end
 
     def current_user
+      return unless session[:user_id]
+
       @user = User.find_by(id: session[:user_id])
+    end
+
+    def receiver_in(chat)
+      chat.users.where.not(id: current_user).first
     end
 
     def unread_private_messages_count_from(user)

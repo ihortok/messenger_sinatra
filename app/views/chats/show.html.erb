@@ -1,16 +1,17 @@
 <% current_nick = current_user.nickname %>
+<% receiver = receiver_in(@chat) %>
 <div class="chat">
   <header>
     <a href="/chats" class="btn btn-icon back">
       <img src="/images/back.png">
     </a>
-    <h3><%= @receiver.nickname %></h3>
+    <h3><%= receiver.nickname %></h3>
     <a href="" class="btn btn-green refresh">refresh</a>
   </header>
   <div id="messages" class="messages">
     <ul>
-      <% @messages.each do |message| %>
-        <li class="message <%= 'current-user-message' if message.sender.nickname == current_nick %>">
+      <% @chat.messages.each do |message| %>
+        <li class="message <%= 'current-user-message' if message.sent_by == current_nick %>">
           <div class="message-inner">
             <span class="message-date">
               <%= message.created_at.strftime('%H:%M %Y-%m-%d') %>
@@ -25,8 +26,7 @@
     </ul>
   </div>
   <footer>
-    <form action="/messages/create" method="post">
-      <input type="hidden" name="receiver_id" value="<%= @receiver.id %>">
+    <form action="/chats/<%= @chat.id %>/message" method="post">
       <textarea name="content" required></textarea>
       <button type="submit" class="btn btn-icon"><img src="/images/send.png"></button>
     </form>
