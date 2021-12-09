@@ -15,6 +15,7 @@ GEM
     airbrussh (1.4.0)
       sshkit (>= 1.6.1, != 1.7.0)
     bcrypt (3.1.16)
+    bson (4.12.1)
     capistrano (3.16.0)
       airbrussh (>= 1.0.0)
       i18n
@@ -34,6 +35,12 @@ GEM
       concurrent-ruby (~> 1.0)
     method_source (1.0.0)
     minitest (5.14.4)
+    mongo (2.17.0)
+      bson (>= 4.8.2, < 5.0.0)
+    mongoid (7.3.3)
+      activemodel (>= 5.1, < 6.2)
+      mongo (>= 2.10.5, < 3.0.0)
+      ruby2_keywords (~> 0.0.5)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
     net-scp (3.0.0)
@@ -81,6 +88,7 @@ DEPENDENCIES
   capistrano-rbenv
   dotenv
   faker
+  mongoid
   pg
   pry
   puma
@@ -90,7 +98,7 @@ DEPENDENCIES
   sinatra-flash
 
 RUBY VERSION
-   ruby 3.0.1p64
+   ruby 3.0.3p157
 
 BUNDLED WITH
-   2.2.15
+   2.2.32

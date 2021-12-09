@@ -1,11 +1,13 @@
 # frozen_string_literal: true
 
 # Message model
-class Message < ActiveRecord::Base
-  belongs_to :sender, class_name: 'User'
-  belongs_to :receiver, polymorphic: true
+class Message
+  include Mongoid::Document
 
-  validates :sender, presence: true
-  validates :receiver, presence: true
-  validates :content, presence: true
+  field :content, type: String
+  field :sent_by, type: String
+  field :seen, type: Boolean, default: false
+  field :created_at, type: DateTime
+
+  embedded_in :chat
 end
