@@ -15,7 +15,6 @@ class MessagesController < ApplicationController
   private
 
   def message_params
-    params.select { |param, _| %w[receiver_id content].include? param }
-          .merge(sender_id: current_user.id, created_at: Time.current)
+    params.select { |param, _| %w[receiver_id content].include? param }.merge(sender: current_user, receiver_type: 'User')
   end
 end

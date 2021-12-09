@@ -56,6 +56,6 @@ class ChatsController < ApplicationController
   end
 
   def messages
-    @messages ||= MessagesQuery.new.private_chat_between(current_user.id, receiver.id)
+    @messages ||= MessagesQuery.new.private_chat_between(current_user, receiver)
   end
 end
