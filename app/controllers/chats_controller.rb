@@ -20,8 +20,6 @@ class ChatsController < ApplicationController
     chat = Chat.find_or_create_by(user_ids: [receiver.id, current_user.id])
 
     redirect "/chats/#{chat.id}"
-
-    erb :'chats/show.html', layout: :'layout.html'
   end
 
   get '/chats/:id' do
